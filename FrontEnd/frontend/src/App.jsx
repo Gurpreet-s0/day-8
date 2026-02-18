@@ -6,7 +6,7 @@ const App = () => {
 
   const [notes, setnotes] = useState([{}]);
   function getdata() {
-    axios.get("http://localhost:3000/notes").then((res) => {
+    axios.get("https://server-bw13.onrender.com/notes").then((res) => {
       setnotes(res.data.notes);
     });
   }
@@ -21,7 +21,7 @@ const App = () => {
     console.log(title.value, description.value);
 
     axios
-      .post("http://localhost:3000/notes", {
+      .post("https://server-bw13.onrender.com/notes", {
         title: title.value,
         description: description.value,
       })
@@ -32,7 +32,7 @@ const App = () => {
   }
 
   function deletehandler(id) {
-    axios.delete(`http://localhost:3000/notes/${id}`).then((res) => {
+    axios.delete(`https://server-bw13.onrender.com/notes/${id}`).then((res) => {
       console.log(res);
       getdata();
     });
@@ -43,7 +43,7 @@ const App = () => {
     // const newdesc = prompt("new desc:")
 
     axios
-      .patch(`http://localhost:3000/notes/${id}`, {
+      .patch(`https://server-bw13.onrender.com/notes/${id}`, {
         title: changedtitle,
         description: changeddesc,
       })
